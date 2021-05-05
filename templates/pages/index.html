@@ -28,11 +28,9 @@
     <div class="about-content">
         <h1>About <span>Subrem</span></h1>
         <div>Your Personal Subscription Manager</div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat. Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat</p>
+        <p>SubRem is a reminder website.
+            -> It allows the user to create an account and store all the data related to a particular type of subscription he/she purchases. 
+            -> It reminds user whenever a subscription is about to expire, so that the user could renew the subscription and maintain a proper record of his/her spending on the subscriptions of various diffeent platforms.</p>
     </div>
     </div>
 </section>
@@ -42,7 +40,7 @@
         <span>Categories</span>
     </h1>
     <div class="cards">
-        <div class="card">
+        <a style="text-decoration: none; color: initial;"  href="{% url 'streamingServices' %}" class="card">
             <div class="card-square">
                 <div class="inner-square"><img src="{% static 'images/streaming.png' %}"></div>
             </div>
@@ -50,21 +48,21 @@
                 <h1>Streaming Services</h1>
                 <p>Netflix. Prime Video. Disney+ Hotstar.</p>
             </div>
-        </div>
-        <div class="card">
+        </a>
+        <a style="text-decoration: none; color: initial;"  href="{% url 'lifestyle' %}" class="card">
             <div class="card-square">
                 <div class="inner-square"><img src="{% static 'images/lifestyle.png' %}"></div>
             </div>
             <h1>Lifestyle</h1>
             <p>Nike Run Club. Headspace. Cult Fit</p>
-        </div>
-        <div class="card">
+        </a>
+        <a style="text-decoration: none; color: initial;"  href="{% url 'cloudStorage' %}" class="card">
             <div class="card-square">
                 <div class="inner-square"><img src="{% static 'images/cloud.png' %}"></div>
             </div>
             <h1>Cloud Storage</h1>
             <p>AWS. Azure. Google Cloud</p>
-        </div>
+        </a>
 
     </div>
 </section>
