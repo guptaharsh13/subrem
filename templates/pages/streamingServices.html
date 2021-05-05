@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Cloud Storage{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block content %}
+
+{% include 'partials/_navbar.html' %}
+
+    <section class="services">
+        <h1 class="Life">
+            <span>Streaming Services</span>
+        </h1>
+        <div class="alert-container">
+            {% include 'partials/_alert.html' %}
+        </div>
+        <div class="images">
+            <div class="image" style="background: url({% static 'images/netflix.png' %}) no-repeat center center/cover;">            
+                <form class="overlay" action="" method="POST">
+                    {% csrf_token %}
+                    <h1>
+                        <i class="fa fa-calendar-check-o" style="padding: 1rem;" aria-hidden="true"></i>
+                    </h1>
+                    <input type="hidden" name="company_name" value="Netflix">
+                    <input type="date" name="expire_date" id="" required>
+                    <div class="stream-button" >
+                        <button type="submit">Add+</button>
+                    </div>
+                </form>
+            </div>
+            <div class="image" style="background: url({% static 'images/prime.svg' %}) no-repeat center center/cover;">            
+                <form class="overlay" action="" method="POST">
+                    {% csrf_token %}
+                    <h1>
+                        <i class="fa fa-calendar-check-o" style="padding: 1rem;" aria-hidden="true"></i>
+                    </h1>
+                    <input type="hidden" name="company_name" value="Amazon Prime">
+                    <input type="date" name="expire_date" id="" required>
+                    <div class="stream-button" >
+                        <button type="submit">Add+</button>
+                    </div>
+                </form>
+            </div>
+            <div class="image" style="background: url({% static 'images/hotstar.png' %}) no-repeat center center/cover;">            
+                <form class="overlay" action="" method="POST">
+                    {% csrf_token %}
+                    <h1>
+                        <i class="fa fa-calendar-check-o" style="padding: 1rem;" aria-hidden="true"></i>
+                    </h1>
+                    <input type="hidden" name="company_name" value="Hotstar">
+                    <input type="date" name="expire_date" id="" required>
+                    <div class="stream-button" >
+                        <button type="submit">Add+</button>
+                    </div>
+                </form>
+            </div>
+            <div class="image" style="background: url({% static 'images/others.png' %}) no-repeat center center/cover;">            
+                <form class="overlay" action="" method="POST">
+                    {% csrf_token %}
+                    <h1>
+                        <i class="fa fa-calendar-check-o" style="padding: 1rem;" aria-hidden="true"></i>
+                    </h1>
+                    <input style="margin: 0.35rem;" type="text" name="company_name" required>
+                    <input style="margin: 0.35rem;" type="date" name="expire_date" id="" required>
+                    <div class="stream-button" >
+                        <button type="submit">Add+</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="front">
+        <div class="logo"><img src="{% static 'images/teamlogo2.png' %}" alt="Aviators" width=150px></div>
+        <div class="copy">Copyright 2020 &copy; Aviators</div>
+    </footer>
+
+    {% endblock %}

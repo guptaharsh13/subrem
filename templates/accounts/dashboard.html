@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block content %}
+
+{% include 'partials/_navbar.html' %}
+
+    <section class="services">
+        <h1 class="Life" style="text-transform: none;">
+            <span>Welcome {{ request.user.first_name }} {{ request.user.last_name }} ({{ request.user.username }}) </span>
+        </h1>
+        <div class="alert-container">
+            {% include 'partials/_alert.html' %}
+        </div>
+        <div class="images">
+            {% for reminder in reminders %}
+            <div class="image"
+
+            {% if reminder.company_name == 'Amazon Web Services' %}
+            style="background: url({% static 'images/aws.png' %}) no-repeat center center/cover;"
+            {% elif reminder.company_name == 'Microsoft Azure' %}
+            style="background: url({% static 'images/azure.png' %}) no-repeat center center/cover;"
+            {% elif reminder.company_name == 'Google Cloud' %}
+            style="background: url({% static 'images/googlecloud.png' %}) no-repeat center center/cover;"
+            {% elif reminder.company_name == 'Nike' %}
+            style="background: url({% static 'images/nike.png' %}) no-repeat center center/cover;"
+            {% elif reminder.company_name == 'Cure.Fit' %}
+            style="background: url({% static 'images/curefit.png' %}) no-repeat center center/cover;"
+            {% elif reminder.company_name == 'Headspace' %}
+            style="background: url({% static 'images/headspace.png' %}) no-repeat center center/cover;"
+            {% elif reminder.company_name == 'Netflix' %}
+            style="background: url({% static 'images/netflix.png' %}) no-repeat center center/cover;"
+            {% elif reminder.company_name == 'Amazon Prime' %}
+            style="background: url({% static 'images/prime.svg' %}) no-repeat center center/cover;"
+            {% elif reminder.company_name == 'Hotstar' %}
+            style="background: url({% static 'images/hotstar.png' %}) no-repeat center center/cover;"
+            {% endif %}
+
+            >            
+                <form class="overlay" action="" method="POST">
+                    {% csrf_token %}
+                    <h1>
+                        <i class="fa fa-calendar-check-o" style="padding: 1rem;" aria-hidden="true"></i>
+                    </h1>
+                    <input type="hidden" name="company_name" value="Amazon Web Services">
+                    <input type="date" name="expire_date" value="{{ reminder.expire_date }}" id="" required>
+                    <div class="stream-button" >
+                        <button type="submit">Add+</button>
+                    </div>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+    <footer class="front">
+        <div class="logo"><img src="{% static 'images/teamlogo2.png' %}" alt="Aviators" width=150px></div>
+        <div class="copy">Copyright 2020 &copy; Aviators</div>
+    </footer>
+
+    {% endblock %}

@@ -1,0 +1,32 @@
+{% load static %}
+
+<nav>
+    <div class="hamburger-container">
+        <div class="hamburger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </div>
+
+    <div class="nav-logo">
+        <img style="width: 5.5rem" src="{% static 'images/teamlogo2.png' %}" alt="Creative">
+    </div>
+    <div class="nav-links">
+        <ul>
+            <a href="{% url 'index' %}">HOME</a>
+            <a href="#about">ABOUT</a>
+            <a href="#services">SERVICES</a>
+            <a href="#contact">CONTACT US</a>
+        </ul>
+    </div>
+    <div class="auth">
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'dashboard' %}">Welcome {{ request.user.username }}</a>
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'register' %}">Sign Up</a>
+            <a href="{% url 'login' %}">Sign In</a>
+        {% endif %}
+    </div>
+</nav>

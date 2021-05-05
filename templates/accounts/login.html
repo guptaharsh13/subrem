@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}About{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h1>Login</h1>
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+
+    <div class="imgcontainer">
+        <img src="{% static 'images/Person.png' %}" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+
+        {% include 'partials/_alert.html' %}
+
+        <label for="uname">
+            <b>Username</b>
+        </label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+
+        <label for="psw">
+            <b>Password</b>
+        </label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">
+            Login
+        </button>
+        <label style="font-family: 'Play', sans-serif;">
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </div>
+
+    <div class="social">
+        <h3> or </h3>
+        <h1> Login With: </h1>
+        <a href=""><img src="{% static 'images/facebook.png' %}" alt="facebook"></a>&nbsp;&nbsp;&nbsp;
+        <!--Add facebook URL-->
+        <a href=""><img src="{% static 'images/instagram.png' %}" alt="instagram"></a>&nbsp;&nbsp;&nbsp;
+        <!--Add instagram URL-->
+        <a href=""><img src="{% static 'images/snapchat.png' %}" alt="snapchat"></a>&nbsp;&nbsp;&nbsp;
+        <!--Add snapchat URL-->
+        <a href=""><img src="{% static 'images/twitter.png' %}" alt="twitter"></a>&nbsp;&nbsp;&nbsp;
+        <!--Add twitter URL-->
+        <a href=""><img src="{% static 'images/google.png' %}" alt="google"></a>&nbsp;&nbsp;&nbsp;
+        <!--Add google URL-->
+        <a href=""><img src="{% static 'images/github.png' %}" alt="github"></a>&nbsp;&nbsp;&nbsp;
+        <!--Add github URL-->
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">
+            New User | Register
+        </button>
+        <span class="psw" style="font-family: 'Play', sans-serif;"><a href="#">Forgot password?</a></span>
+    </div>
+</form>
+
+{% endblock %}
